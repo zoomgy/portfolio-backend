@@ -1,9 +1,6 @@
 package com.zoomgy.portfolio.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -36,6 +33,7 @@ public class Education {
     private Long startYear;
     private Long endYear;
     private Float cgpa;
+    @Column(columnDefinition = "TEXT")
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
