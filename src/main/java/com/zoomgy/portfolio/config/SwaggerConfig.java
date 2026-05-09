@@ -7,17 +7,24 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import io.swagger.v3.oas.models.servers.Server;
+import java.util.List;
+
 @Configuration
 public class SwaggerConfig {
 
     @Bean
     public OpenAPI openAPI() {
         return new OpenAPI()
-                .addSecurityItem(new SecurityRequirement().addList("Bearer Auth"))
-                .components(new Components()
-                        .addSecuritySchemes("Bearer Auth", new SecurityScheme()
-                                .type(SecurityScheme.Type.HTTP)
-                                .scheme("bearer")
-                                .bearerFormat("JWT")));
+            .servers(List.of(
+                new Server().url("https://zoomgy.xyz"),
+                new Server().url("http://localhost:8080")
+            ))
+            .addSecurityItem(new SecurityRequirement().addList("Bearer Auth"))
+            .components(new Components()
+                .addSecuritySchemes("Bearer Auth", new SecurityScheme()
+                    .type(SecurityScheme.Type.HTTP)
+                    .scheme("bearer")
+                    .bearerFormat("JWT")));
     }
 }
