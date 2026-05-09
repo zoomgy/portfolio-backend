@@ -29,7 +29,9 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",
                 "https://portfolio-frontend-six-ruby.vercel.app",
-                "http://35.154.69.33/"
+                "http://35.154.69.33/",
+                "https://zoomgy.xyz",
+                "https://www.zoomgy.xyz"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
