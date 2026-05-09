@@ -28,7 +28,8 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",
-                "https://portfolio-frontend-six-ruby.vercel.app"
+                "https://portfolio-frontend-six-ruby.vercel.app",
+                "http://35.154.69.33/"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
