@@ -27,17 +27,17 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Map<String, Object>> registerUser(
-            @Valid @RequestBody User user
-    ) {
+        public ResponseEntity<Map<String, Object>> registerUser(
+                @Valid @RequestBody User user
+        ) {
         return new ResponseEntity<>(
-                CustomResponseBuilder.buildResponse(
-                        userService.createUser(user),
-                        HttpStatus.CREATED.value()
-                ),
-                HttpStatus.CREATED
+            CustomResponseBuilder.buildError(
+                "Registration is disabled",
+                HttpStatus.FORBIDDEN.value()
+            ),
+            HttpStatus.FORBIDDEN
         );
-    }
+        }
 
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> loginUser(
